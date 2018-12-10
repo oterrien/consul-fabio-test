@@ -13,7 +13,7 @@ import java.util.Optional;
 
 @Service
 @Slf4j
-public class ClientService {
+public class DiscoveryClientService {
 
     @Autowired
     private DiscoveryClient discoveryClient;
@@ -21,15 +21,15 @@ public class ClientService {
     @Autowired
     private RestOperations restOperations;
 
-    @Scheduled(fixedRate = 5000)
+   // @Scheduled(fixedRate = 5000)
     public void test() {
         String serviceName = "server";
         Optional<String> serviceUrl = serviceUrl(serviceName);
         if (serviceUrl.isPresent()) {
             String result = restOperations.getForObject(serviceUrl.get() + "/test", String.class);
-            log.warn("Service {} returns {}", serviceName, result);
+            log.warn("DISCOVERY - Service returns {}", result);
         } else {
-            log.error("Service {} not found", serviceName);
+            log.error("DISCOVERY - Service not found", serviceName);
         }
     }
 

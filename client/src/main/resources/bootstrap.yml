@@ -5,16 +5,12 @@ spring:
   application:
     name: client
   cloud:
-#    zookeeper:
-#      connect-string: localhost:2181
     consul:
       host: localhost
       port: 8500
       discovery:
-        tags: "mode=test"
+        tags: "urlprefix-/client/ strip=/client" # to define route
         enabled: true
-        instanceId: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
+        instanceId: ${spring.application.name}-${server.port}
         healthCheckPath: /health
         healthCheckInterval: 5s
-#        hostname: ${vcap.application.uris[0]:localhost}
-#        port: 80
