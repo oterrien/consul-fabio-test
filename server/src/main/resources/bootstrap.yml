@@ -1,5 +1,5 @@
 server:
-    port: 8080
+  port: 8080
 
 spring:
   application:
@@ -8,9 +8,11 @@ spring:
     consul:
       host: localhost
       port: 8500
+      config:
+        enabled: true
       discovery:
         tags: "urlprefix-/server/ strip=/server" # to define route
         enabled: true
         instanceId: ${spring.application.name}-${server.port}
-        healthCheckPath: /health
+        healthCheckPath: /actuator/health
         healthCheckInterval: 5ms

@@ -4,7 +4,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestOperations;
 
@@ -21,7 +20,7 @@ public class DiscoveryClientService {
     @Autowired
     private RestOperations restOperations;
 
-   // @Scheduled(fixedRate = 5000)
+    // @Scheduled(fixedRate = 5000)
     public void test() {
         String serviceName = "server";
         Optional<String> serviceUrl = serviceUrl(serviceName);

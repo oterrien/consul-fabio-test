@@ -1,0 +1,3 @@
+configuration.loader:
+  type: LOCAL
+  local.file: "config.local.yml"

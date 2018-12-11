@@ -12,5 +12,5 @@ spring:
         tags: "urlprefix-/client/ strip=/client" # to define route
         enabled: true
         instanceId: ${spring.application.name}-${server.port}
-        healthCheckPath: /health
+        healthCheckPath: /actuator/health
         healthCheckInterval: 5s
